@@ -1,9 +1,15 @@
 from django import views
 
 from django.shortcuts import render
-
+from home.forms import LoginForm
 
 class Login(views.View):
     def get(self,request):
 
-        return render(request,"home/login.html")
+        form=LoginForm()
+
+        data={}
+        data["form"]=form
+        
+
+        return render(request,"home/login.html",data)
