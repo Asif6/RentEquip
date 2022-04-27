@@ -46,7 +46,7 @@ class Nuser(AbstractBaseUser,PermissionsMixin):
     first_name= models.CharField(max_length=100)
     last_name=models.CharField(max_length=100)
     userName=models.CharField(max_length=100)
-    email=models.EmailField(unique=True)
+    email=models.EmailField(unique=True, error_messages={"unique":"This Email already exists."})
     password=models.CharField(max_length=100)
 
     token=models.CharField(max_length=500)

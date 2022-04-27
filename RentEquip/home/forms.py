@@ -30,3 +30,5 @@ class LoginForm(forms.ModelForm):
         fields=["email","password"]
 
         widgets={ "email":forms.EmailInput({"class":'form_control'}), "password":forms.PasswordInput({"class":'form_control'})}
+        # error_massages={"email":{"unique":" THIS EMAIL IS ALLRADY "}}
+        

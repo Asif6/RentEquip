@@ -9,6 +9,7 @@ from django.core.mail import send_mail
 from django.contrib.sites.shortcuts import get_current_site
 from django.conf import settings
 import traceback
+from django.contrib import messages
 
 def send_signup_mail(request,email,token,name):
     current_site=get_current_site(request)
@@ -63,8 +64,8 @@ class Signup(views.View):
             
             except Exception as e:
 
-                error="Internal Server Error Try Later "
-                print('BAWWWWWWWWWWWWWWWWW',error)
+                messages.error(request, 'Internal Server Error Try Later')
+                # print('BAWWWWWWWWWWWWWWWWW',error)
 
             data['error']=error  
             data["user"]=user
