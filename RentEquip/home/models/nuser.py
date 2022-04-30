@@ -18,6 +18,8 @@ class MyuserManager(BaseUserManager):
             raise ValueError("Last Name is required")
         if not email:
             raise ValueError("Email is required")
+        if not password:
+            raise ValueError("Password is required ")
 
         email=self.normalize_email(email=email)
         user=self.model(first_name=first_name,last_name=last_name,email=email,password=password,**extra_fields)

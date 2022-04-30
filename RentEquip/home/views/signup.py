@@ -61,6 +61,8 @@ class Signup(views.View):
             
             try:
                 send_signup_mail(request,email=email,token=token,name=fullname)
+                user.save()
+                messages.success(request,"Your Account created successfully... Please chake your email to verify your account ")
             
             except Exception as e:
 
